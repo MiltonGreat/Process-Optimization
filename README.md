@@ -1,4 +1,4 @@
-# Manufacturing Process Optimization Project
+# Manufacturing Process Optimization
 
 # Overview
 
