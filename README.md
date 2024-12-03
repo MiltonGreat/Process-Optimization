@@ -57,6 +57,8 @@ Second Stage Model Evaluation:
 
 The models performed well, with the second stage demonstrating higher predictive accuracy. The results highlight the importance of combining input features with first-stage outputs for better predictions in the second stage.
 
+The evaluation metrics indicate that the models are performing well, especially in the second stage, which benefits from the sequential approach. By leveraging these models to identify process inefficiencies and optimize inputs, you can drive improvements in the overall manufacturing process. This analysis also highlights the critical role of combining features across stages for enhanced predictive accuracy.
+
 ### Visualizations
 
 - Bar plots showcasing the most critical input features for both stages.
