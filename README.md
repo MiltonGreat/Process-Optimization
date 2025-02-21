@@ -20,7 +20,7 @@ The dataset includes sensor and output measurements from a continuous manufactur
 
 Dataset Size: 14,088 records
 
-### Solution Approach
+### Workflow
 
 1. Data Preprocessing
 - Handling Missing Values: Imputed missing values using the median for numerical features.
@@ -50,15 +50,42 @@ Second Stage Model Evaluation
 
 Both stages performed well, with the second stage model showing slightly higher predictive accuracy. This highlights the benefits of combining features from multiple stages for better overall prediction.
 
+Quality Control
+- Precision: 0.958
+- Recall: 0.954
+- F1-Score: 0.956
+- ROC-AUC: 0.992
+
+Optimal Inputs
+- Identified optimal input configurations to maximize output quality.
+
 ### Key Findings
 
-- Bottlenecks Identified: The analysis revealed that certain stages, particularly stages 2 and 4, were bottlenecked, causing delays in production.
+1. Stage 1 Predictions:
 
-- Optimization Potential: Through predictions and feature analysis, recommendations for process optimization include balancing loads across stages and optimizing parallel machine operations to alleviate bottlenecks.
+- The Random Forest model for Stage 1 achieved moderate performance, with an R² of 0.618, indicating that it explains 61.8% of the variance in the output measurements.
+- The MAE (0.436) and RMSE (1.804) suggest that the model's predictions are reasonably accurate, though there is room for improvement. Larger errors (as indicated by RMSE) may be due to outliers or complex patterns in the data.
 
-- Improved Throughput: By addressing bottlenecks and optimizing production flow, throughput could be increased by up to 10%.
+To further enhance Stage 1 predictions, additional feature engineering, hyperparameter tuning, or more advanced models (e.g., gradient boosting or neural networks) could be explored.
 
-- Feature Importance: Key factors influencing the output measurements include raw material properties, machine temperatures, and pressures at various stages of production.
+2. Stage 2 Predictions:
+
+- The model for Stage 2 outperformed Stage 1, achieving an R² of 0.744, which indicates a stronger ability to explain the variance in the output measurements.
+- The MAE (0.422) and RMSE (1.818) are slightly better than Stage 1, suggesting that the inclusion of Stage 1 outputs as inputs for Stage 2 provides additional predictive power.
+- This improvement highlights the interconnected nature of the two stages and the importance of leveraging intermediate outputs for downstream predictions.
+
+3. Quality Control:
+
+- The quality control model demonstrated exceptional performance, with a precision of 0.958, recall of 0.954, and an F1-score of 0.956. These metrics indicate that the model is highly reliable for identifying high-quality outputs.
+- The ROC-AUC score of 0.992 further confirms the model's strong ability to distinguish between high-quality and low-quality outputs.
+- This model can be effectively used to automate quality control and provide early warnings for suboptimal production outcomes.
+
+4. Process Optimization:
+
+- The analysis identified optimal input configurations (e.g., machine settings, raw material properties) that maximize output quality. These configurations can be used to fine-tune the production process.
+- Positive and negative values in the optimal inputs indicate whether increasing or decreasing specific features improves output quality, while the magnitude reflects their relative importance.
+- Mapping these optimal inputs back to the original feature names will provide actionable insights for process optimization.
+
 
 ### Future Directions
 
